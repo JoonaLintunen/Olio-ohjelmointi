@@ -1,7 +1,41 @@
 import random
 import time
 
+class Olento:
+    def __init__(self, nimi, hurraus, rohkeus, katseen_voima):
+        self.nimi = nimi
+        self.hurraus = hurraus
+        self.rohkeus = rohkeus
+        self.katseen_voima = katseen_voima
 
+class Peikko(Olento):
+    def __init__(self, nimi, hurraus, rohkeus, katseen_voima):
+        super().__init__(nimi, hurraus, rohkeus, katseen_voima)
+
+class Sankari(Olento):
+    def __init__(self, nimi, hurraus, rohkeus, katseen_voima):
+        super().__init__(nimi, hurraus, rohkeus, katseen_voima)
+
+class Vuorenpeikko(Peikko):
+    def __init__(self):
+        nimi = "Vuorenpeikko"
+        hurraus = "Raaarrr!"
+        rohkeus = random.randint(1, 10)
+        katseen_voima = random.randint(1, 10)
+        super().__init__(nimi, hurraus, rohkeus, katseen_voima)
+
+class Luolapeikko(Peikko):
+    def __init__(self):
+        nimi = "Luolapeikko"
+        hurraus = "Grrrrr!"
+        rohkeus = random.randint(1, 10)
+        katseen_voima = random.randint(1, 10)
+        super().__init__(nimi, hurraus, rohkeus, katseen_voima)
+
+def luo_peikko():
+    peikko_tyyppi = random.choice(["Peikko", "Vuorenpeikko", "Luolapeikko"])
+    if peikko_tyyppi == "Peikko":
+        return Peikko("Peikko", "Grrrr!", random.randint(1, 10))
 class Peikko:
     """Luokka, joka kuvaa Peikon.
 
@@ -216,3 +250,4 @@ while sankari.rohkeus > 0:
 
 time.sleep(1.5)
 print(f"{sankari.nimi} herää sängystään hikisenä - onneksi se oli vain unta!")
+
